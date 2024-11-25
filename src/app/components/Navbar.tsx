@@ -78,7 +78,7 @@ const Navbar: React.FC = () => {
                 href="#"
                 className="block py-2 px-3 text-black-olive rounded hover:gunmetal md:hover:bg-transparent md:hover:text-gunmetal md:p-0 md:dark:hover:text-blue-500 dark:text-black-olive dark:hover:bg-gunmetal dark:hover:text-black-olive md:dark:hover:bg-transparent dark:border-french-gray"
               >
-                Success Stories
+                What We do
               </a>
             </li>
             <li>
