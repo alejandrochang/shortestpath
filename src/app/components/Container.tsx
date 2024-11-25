@@ -6,8 +6,9 @@ const Container: React.FC<{
   title?: string;
   desc?: string;
   color?: string;
+  gradient?: boolean;
   id?: string;
-}> = ({ children, title, desc, color, id }) => {
+}> = ({ children, title, desc, color, id, gradient }) => {
   const style: CSSProperties = {
     display: "flex",
     flexDirection: "column",
@@ -18,12 +19,13 @@ const Container: React.FC<{
     height: "600px",
     borderRadius: "30px",
     padding: "20px",
+    ...(gradient ? { background: 'linear-gradient(90deg, hsla(180, 10%, 48%, 1) 0%, hsla(0, 0%, 0%, 1) 100%)' } : {}),
   };
 
   const backgroundColor = color
     ? TAILWIND_COLORS[color]
     : TAILWIND_COLORS.white;
-  const textColor = color ? "text-white" : "text-black";
+  const textColor = color || gradient ? "text-white" : "text-black";
   return (
     <div
       style={style}

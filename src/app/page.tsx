@@ -26,7 +26,7 @@ export default function Home() {
             </p>
           </div>
         </Container>
-        <Container title="Why Shortest Path?" id="why-shortest-path">
+        <Container gradient title="Why Shortest Path?" id="why-shortest-path">
           <div
             className="w-full sm:w-[800px] text-center mt-10"
           >
@@ -57,7 +57,7 @@ export default function Home() {
             </p>
           </div>
         </Container>
-        <Container color="black" title="What We Do?" id="what-we-do">
+        <Container title="What We Do?" id="what-we-do">
           <div
             className="w-full sm:w-[800px] text-center mt-10"
           >
@@ -80,12 +80,19 @@ export default function Home() {
             </ul>
           </div>
         </Container>
-        <Container title="Contact" color="blackOlive" id="contact">
-          <div>Container 4</div>
+        <Container title="Get in touch" color="blackOlive" id="contact">
+        <div className="w-full sm:w-[800px] text-center mt-10">
+          <p className="mb-4">
+            <strong>Email:</strong> contact@shortestpathconsulting.com
+          </p>
+          <p>
+            <strong>Phone:</strong> (123) 456-7890
+          </p>
+        </div>
         </Container>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        Footer
+        Shortest Path Consulting © 2024
       </footer>
     </div>
   );

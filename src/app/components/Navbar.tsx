@@ -22,7 +22,7 @@ const Navbar: React.FC = () => {
         <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button
             type="button"
-            className="text-white bg-slate-gray hover:french-gray focus:ring-4 focus:outline-none focus:#6E8787 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black-600 dark:hover:black dark:focus:black"
+            className="text-white bg-black hover:french-gray focus:ring-4 focus:outline-none focus:#6E8787 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black-600 dark:hover:black dark:focus:black"
           >
             Schedule a Consultation
           </button>
