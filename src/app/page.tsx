@@ -27,9 +27,7 @@ export default function Home() {
           </div>
         </Container>
         <Container gradient title="Why Shortest Path?" id="why-shortest-path">
-          <div
-            className="w-full sm:w-[800px] text-center mt-10"
-          >
+          <div className="w-full sm:w-[800px] text-center mt-10">
             <ul className="list-disc pl-5 text-left space-y-4 mb-10">
               <ol className="list-decimal pl-5 space-y-2">
                 <li>
@@ -58,9 +56,7 @@ export default function Home() {
           </div>
         </Container>
         <Container title="What We Do?" id="what-we-do">
-          <div
-            className="w-full sm:w-[800px] text-center mt-10"
-          >
+          <div className="w-full sm:w-[800px] text-center mt-10">
             <ul className="list-disc pl-5 text-left space-y-4 mb-10">
               <li>
                 <strong>Consulting:</strong> Comprehensive analysis and
@@ -81,14 +77,17 @@ export default function Home() {
           </div>
         </Container>
         <Container title="Get in touch" color="blackOlive" id="contact">
-        <div className="w-full sm:w-[800px] text-center mt-10">
-          <p className="mb-4">
-            <strong>Email:</strong> contact@shortestpathconsulting.com
-          </p>
-          <p>
-            <strong>Phone:</strong> (123) 456-7890
-          </p>
-        </div>
+          <div className="w-full sm:w-[800px] text-center mt-10">
+            <p className="mb-4">
+              <strong>Email: </strong>
+                <a href="mailto:shortestpathc@gmail.com" className="underline">
+                shortestpathc@gmail.com
+                </a>
+            </p>
+            <p>
+              <strong>Phone:</strong> (650) 716-8403
+            </p>
+          </div>
         </Container>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
