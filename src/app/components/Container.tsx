@@ -6,7 +6,8 @@ const Container: React.FC<{
   title?: string;
   desc?: string;
   color?: string;
-}> = ({ children, title, desc, color }) => {
+  id?: string;
+}> = ({ children, title, desc, color, id }) => {
   const style: CSSProperties = {
     display: "flex",
     flexDirection: "column",
@@ -19,12 +20,15 @@ const Container: React.FC<{
     padding: "20px",
   };
 
-  const backgroundColor = color ? TAILWIND_COLORS[color] : TAILWIND_COLORS.white;
+  const backgroundColor = color
+    ? TAILWIND_COLORS[color]
+    : TAILWIND_COLORS.white;
   const textColor = color ? "text-white" : "text-black";
   return (
     <div
       style={style}
       className={`container ${backgroundColor} mx-auto px-4 mb40 br-8 ${textColor}`}
+      id={id}
     >
       {title && (
         <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">

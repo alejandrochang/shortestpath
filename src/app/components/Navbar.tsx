@@ -58,7 +58,7 @@ const Navbar: React.FC = () => {
           <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-french-gray rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-french-gray dark:border-french-gray">
             <li>
               <a
-                href="#"
+                href="#solutions"
                 className="block py-2 px-3 text-black-olive bg-white rounded md:bg-transparent md:text-gunmetal md:p-0 md:dark:text-blue-500"
                 aria-current="page"
               >
@@ -67,7 +67,7 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#why-shortest-path"
                 className="block py-2 px-3 text-black-olive rounded hover:gunmetal md:hover:bg-transparent md:hover:text-gunmetal md:p-0 md:dark:hover:text-blue-500 dark:text-black-olive dark:hover:bg-gunmetal dark:hover:text-black-olive md:dark:hover:bg-transparent dark:border-gunmetal"
               >
                 Why Shortest Path
@@ -75,15 +75,15 @@ const Navbar: React.FC = () => {
             </li>
             <li>
               <a
-                href="#"
+                href="#what-we-do"
                 className="block py-2 px-3 text-black-olive rounded hover:gunmetal md:hover:bg-transparent md:hover:text-gunmetal md:p-0 md:dark:hover:text-blue-500 dark:text-black-olive dark:hover:bg-gunmetal dark:hover:text-black-olive md:dark:hover:bg-transparent dark:border-french-gray"
               >
-                What We do
+                What We Do
               </a>
             </li>
             <li>
               <a
-                href="#"
+                href="#contact"
                 className="block py-2 px-3 text-black-olive rounded hover:french-gray md:hover:bg-transparent md:hover:text-gunmetal md:p-0 md:dark:hover:text-blue-500 dark:text-black-olive dark:hover:bg-french-gray dark:hover:text-black-olive md:dark:hover:bg-transparent dark:border-french-gray"
               >
                 Contact
