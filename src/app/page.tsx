@@ -77,7 +77,7 @@ export default function Home() {
           </div>
         </Container>
         <Container title="Get in touch" color="blackOlive" id="contact">
-          <div className="w-full sm:w-[800px] text-center mt-10">
+          <div className="w-full sm:w-[800px] text-center mt-12">
             <p className="mb-4">
               <strong>Email: </strong>
                 <a href="mailto:shortestpathc@gmail.com" className="underline">
