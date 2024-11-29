@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Container from "./components/Container";
+import Image from "next/image";
 
 export default function Home() {
   const headerStyle = {
@@ -76,17 +77,35 @@ export default function Home() {
             </ul>
           </div>
         </Container>
-        <Container title="Get in touch" color="blackOlive" id="contact">
+        <Container color="black" id="contact">
           <div className="w-full sm:w-[800px] text-center mt-12">
-            <p className="mb-4">
-              <strong>Email: </strong>
-                <a href="mailto:shortestpathc@gmail.com" className="underline">
-                shortestpathc@gmail.com
-                </a>
-            </p>
-            <p>
-              <strong>Phone:</strong> (650) 716-8403
-            </p>
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+              <div className="w-full sm:w-1/2 text-left">
+                <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
+                <p className="mb-4">
+                  <strong>Email: </strong>
+                  <a
+                    href="mailto:shortestpathc@gmail.com"
+                    className="underline"
+                  >
+                    shortestpathc@gmail.com
+                  </a>
+                </p>
+                <p>
+                  <strong>Phone:</strong> (650) 716-8403
+                </p>
+              </div>
+              <div className="w-full sm:w-1/2">
+                <Image
+                  className="w-full h-auto rounded-lg"
+                  src="/spc4_processed.png"
+                  alt="Shortest Path Logo"
+                  width={300}
+                  height={300}
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </Container>
       </main>
