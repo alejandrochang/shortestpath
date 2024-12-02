@@ -17,7 +17,7 @@ const Container: React.FC<{
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    height: isMobile ? '100%' : '600px"',
+    height: isMobile ? '100%' : '600px',
     minHeight: isMobile ? 'fit-content' : '600px',
     borderRadius: "30px",
     padding: (isMobile && noPadding) ? 0 : isMobile ? '20px' : "40px",
