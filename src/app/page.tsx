@@ -60,33 +60,49 @@ export default function Home() {
                 </li>
               </ol>
             </ul>
-            <p className="font-bold text-lg mt-6 text-left">Our Edge:</p>
-            <p className="text-left">
-              Deep industry knowledge across technology and business management.
-              Customized Solutions: We focus on creating solutions that are
-              uniquely tailored to the needs of your business with no fluff added.
-            </p>
           </div>
         </Container>
-        <Container title="What We Do?" id="what-we-do">
-          <div className="w-full sm:w-[800px] text-center mt-10">
-            <ul className="list-disc pl-5 text-left space-y-4 mb-10">
-              <li>
-                <strong>Growth Analysis:</strong> Comprehensive analysis and
-                strategic advice to identify opportunities for improvement and
-                growth.
-              </li>
-              <li>
-                <strong>Project Management:</strong> Guiding complex projects
-                from conception through to completion ensuring timelines,
-                budgets, and specifications are met.
-              </li>
-              <li>
-                <strong>Training and Support:</strong> Offering ongoing support
-                and training to ensure sustainable success and adaptation to new
-                systems and processes.
-              </li>
-            </ul>
+        <Container id="what-we-do">
+          <div className="w-full sm:w-[950px]">
+            <div className="flex flex-col sm:flex-row items-center gap-8">
+              <div className="w-full sm:w-2/3 text-left">
+                <h2 className="text-4xl font-bold mb-4">What We Do</h2>
+                <ul className="list-disc pl-5 text-left space-y-4 mb-10">
+                  <li>
+                    <strong>Growth Analysis:</strong> Comprehensive analysis and
+                    strategic advice to identify opportunities for improvement
+                    and growth.
+                  </li>
+                  <li>
+                    <strong>Project Management:</strong> Guiding complex
+                    projects from conception through to completion ensuring
+                    timelines, budgets, and specifications are met.
+                  </li>
+                  <li>
+                    <strong>Training and Support:</strong> Offering ongoing
+                    support and training to ensure sustainable success and
+                    adaptation to new systems and processes.
+                  </li>
+                </ul>
+                <p className="font-bold text-lg mt-6 text-left">Our Edge:</p>
+                <p className="text-left">
+                  Deep industry knowledge across technology and business
+                  management. Customized Solutions: We focus on creating
+                  solutions that are uniquely tailored to the needs of your
+                  business with no fluff added.
+                </p>
+              </div>
+              <div className="w-full sm:w-1/3">
+                <Image
+                  className="w-full h-auto rounded-lg"
+                  src="/spc5.png"
+                  alt="Progammer Coding"
+                  width={200}
+                  height={200}
+                  priority
+                />
+              </div>
+            </div>
           </div>
         </Container>
         <Container color="black" id="contact">
