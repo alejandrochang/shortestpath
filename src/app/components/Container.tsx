@@ -19,7 +19,7 @@ const Container: React.FC<{
     height: "600px",
     borderRadius: "30px",
     padding: "20px",
-    ...(gradient ? { background: 'linear-gradient(90deg, hsla(180, 10%, 48%, 1) 0%, hsla(0, 0%, 0%, 1) 100%)' } : {}),
+    // ...(gradient ? { background: 'linear-gradient(90deg, hsla(180, 10%, 48%, 1) 0%, hsla(0, 0%, 0%, 1) 100%)' } : {}),
   };
 
   const backgroundColor = color

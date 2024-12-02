@@ -20,31 +20,43 @@ export default function Home() {
             <h1 className="text-4xl font-bold mb-10" style={headerStyle}>
               Building Apps is Hard... But it doesnt have to be
             </h1>
-            <p className="mb-10">
+            <p className="mb-5">
               At Shortest Path Consulting, we deliver tailored solutions that
-              streamline operations, enhance technology implementation, and
-              drive business growth. 🚀
+              streamline operations, enhance current and future technology
+              implementations, and drive business growth. 🚀
             </p>
           </div>
         </Container>
-        <Container gradient title="Why Shortest Path?" id="why-shortest-path">
+        <Container
+          color="slateGray"
+          title="Why Shortest Path?"
+          id="why-shortest-path"
+        >
           <div className="w-full sm:w-[800px] text-center mt-10">
-            <ul className="list-disc pl-5 text-left space-y-4 mb-10">
+            <ul className="list-disc pl-5 text-left space-y-4 mb-5">
               <ol className="list-decimal pl-5 space-y-2">
-                <li>
-                  <strong>Process Optimization:</strong> Utilizing advanced
-                  analytics to refine business processes and increase
-                  efficiency.
+                <li className="pb-3">
+                  <strong>Bottleneck Research:</strong> We focus on the
+                  bottlenecks of your business and provide solutions to remove
+                  them. Looking at your own product over a period of time
+                  creates a blinding bias. By providing our unique perspective,
+                  we can help you see the bottlenecks that you may have missed.
                 </li>
-                <li>
-                  <strong>Technology Implementation:</strong> Deploying
-                  cutting-edge technologies that align with your business goals
-                  to foster innovation and competitive advantage.
+                <li className="pb-3">
+                  <strong>Business Optimizations:</strong> We analyze your
+                  current data, processes, and analytics to refine business
+                  procedures and increase efficiency.
                 </li>
-                <li>
-                  <strong>Change Management:</strong> Supporting your team
+                <li className="pb-3">
+                  <strong>Technology Self-Sufficiency:</strong> Our goal is for
+                  your business to be self-reliant, so we provide training and
+                  support to ensure your team can maintain and adapt to new
+                  systems and processes.
+                </li>
+                <li className="pb-3">
+                  <strong>Filling the Gaps:</strong> We support your team
                   through technology transitions with strategic planning and
-                  training.
+                  training, hiring and scaling support, and project management.
                 </li>
               </ol>
             </ul>
@@ -52,7 +64,7 @@ export default function Home() {
             <p className="text-left">
               Deep industry knowledge across technology and business management.
               Customized Solutions: We focus on creating solutions that are
-              uniquely tailored to the needs of your business.
+              uniquely tailored to the needs of your business with no fluff added.
             </p>
           </div>
         </Container>
@@ -60,7 +72,7 @@ export default function Home() {
           <div className="w-full sm:w-[800px] text-center mt-10">
             <ul className="list-disc pl-5 text-left space-y-4 mb-10">
               <li>
-                <strong>Consulting:</strong> Comprehensive analysis and
+                <strong>Growth Analysis:</strong> Comprehensive analysis and
                 strategic advice to identify opportunities for improvement and
                 growth.
               </li>
