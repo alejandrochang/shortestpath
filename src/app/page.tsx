@@ -78,8 +78,18 @@ export default function Home() {
           </div>
         </Container>
         <Container color="black" id="contact">
-          <div className="w-full sm:w-[800px] text-center mt-12">
-            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-8">
+          <div className="w-full sm:w-[950px] mt-12">
+            <div className="flex flex-col sm:flex-row items-center gap-8">
+              <div className="w-full sm:w-1/2">
+                <Image
+                  className="w-full h-auto rounded-lg"
+                  src="/shortestpathiphoneprocessed.png"
+                  alt="Shortest Path Logo"
+                  width={300}
+                  height={300}
+                  priority
+                />
+              </div>
               <div className="w-full sm:w-1/2 text-left">
                 <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
                 <p className="mb-4">
@@ -94,16 +104,6 @@ export default function Home() {
                 <p>
                   <strong>Phone:</strong> (650) 716-8403
                 </p>
-              </div>
-              <div className="w-full sm:w-1/2">
-                <Image
-                  className="w-full h-auto rounded-lg"
-                  src="/spc4_processed.png"
-                  alt="Shortest Path Logo"
-                  width={300}
-                  height={300}
-                  priority
-                />
               </div>
             </div>
           </div>
