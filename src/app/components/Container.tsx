@@ -1,5 +1,6 @@
 import React, { CSSProperties } from "react";
 import { TAILWIND_COLORS } from "../constants";
+import useMobile from "../hooks/useMobile";
 
 const Container: React.FC<{
   children?: React.ReactNode;
@@ -9,23 +10,27 @@ const Container: React.FC<{
   gradient?: boolean;
   id?: string;
 }> = ({ children, title, desc, color, id, gradient }) => {
+  const isMobile = useMobile();
   const style: CSSProperties = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    minWidth: "1100px",
-    maxWidth: "1390px",
-    height: "600px",
+    minWidth: "100%",
+    maxWidth: isMobile ? '100%' : "1390px",
+    height: isMobile ? '100%' : '600px"',
     borderRadius: "30px",
-    padding: "20px",
-    // ...(gradient ? { background: 'linear-gradient(90deg, hsla(180, 10%, 48%, 1) 0%, hsla(0, 0%, 0%, 1) 100%)' } : {}),
+    padding: isMobile ? '20px' : "40px",
+    textAlign: isMobile ? 'center' : undefined,
   };
 
   const backgroundColor = color
     ? TAILWIND_COLORS[color]
     : TAILWIND_COLORS.white;
   const textColor = color || gradient ? "text-white" : "text-black";
+  const titleMarginBottom = isMobile ? "mb-0" : "mb-4";
+  const titleMarginTop = isMobile ? "mt-4" : 0;
+  const fontSize = isMobile ? "text-2xl" : "text-4xl";
   return (
     <div
       style={style}
@@ -33,7 +38,7 @@ const Container: React.FC<{
       id={id}
     >
       {title && (
-        <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+        <h1 className={`${titleMarginBottom} ${titleMarginTop} ${fontSize} font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white`}>
           {title}
         </h1>
       )}

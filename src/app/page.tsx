@@ -1,25 +1,32 @@
+'use client';
 import Navbar from "./components/Navbar";
 import Container from "./components/Container";
 import Image from "next/image";
+import useMobile from "./hooks/useMobile";
 
 export default function Home() {
-  const headerStyle = {
-    fontSize: "60px",
+  const isMobile = useMobile();
+  const largeText = isMobile ? "text-lg" : "text-4xl";
+    const headerStyle = {
+    fontSize: isMobile ? '40px' : '60px',
     lineHeight: "1.2em",
   };
-
+  const paddingLeft = isMobile ? 'pl-2' : 'pl-5';
   return (
     <div className="bg-gunmetal text-white grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <Navbar />
+      <Navbar isMobile />
       <main
         className="flex flex-col gap-8 row-start-2 items-center sm:items-start"
         id="solutions"
       >
         <Container color="gunmetal">
           <div className="w-full sm:w-[800px] text-center">
-            <h1 className="text-4xl font-bold mb-10" style={headerStyle}>
-              Building Apps is Hard... But it doesnt have to be
-            </h1>
+            <h2
+              className={`${largeText} font-bold mb-10`}
+              style={headerStyle}
+            >
+              Building Apps is Hard... But it doesn&apos;t have to be
+            </h2>
             <p className="mb-5">
               At Shortest Path Consulting, we deliver tailored solutions that
               streamline operations, enhance current and future technology
@@ -33,8 +40,8 @@ export default function Home() {
           id="why-shortest-path"
         >
           <div className="w-full sm:w-[800px] text-center mt-10">
-            <ul className="list-disc pl-5 text-left space-y-4 mb-5">
-              <ol className="list-decimal pl-5 space-y-2">
+            <ul className={`list-disc ${paddingLeft} text-left space-y-4 mb-5`}>
+              <ol className={`list-decimal ${paddingLeft} space-y-2`}>
                 <li className="pb-3">
                   <strong>Bottleneck Research:</strong> We focus on the
                   bottlenecks of your business and provide solutions to remove
@@ -63,11 +70,11 @@ export default function Home() {
           </div>
         </Container>
         <Container id="what-we-do">
-          <div className="w-full sm:w-[950px]">
-            <div className="flex flex-col sm:flex-row items-center gap-8">
+          <div className="w-full sm:w-[850px]">
+            <div className={`flex ${isMobile ? 'flex-col-reverse' : 'flex-col'} sm:flex-row items-center gap-8`}>
               <div className="w-full sm:w-2/3 text-left">
-                <h2 className="text-4xl font-bold mb-4">What We Do</h2>
-                <ul className="list-disc pl-5 text-left space-y-4 mb-10">
+                <h2 className={`${largeText} font-bold mb-4 text-center`}>What We Do</h2>
+                <ul className={`{list-disc ${paddingLeft} text-left space-y-4 mb-10`}>
                   <li>
                     <strong>Growth Analysis:</strong> Comprehensive analysis and
                     strategic advice to identify opportunities for improvement
@@ -82,6 +89,11 @@ export default function Home() {
                     <strong>Training and Support:</strong> Offering ongoing
                     support and training to ensure sustainable success and
                     adaptation to new systems and processes.
+                  </li>
+                  <li>
+                    <strong>Custom Solutions:</strong> Whether its building from
+                    scratch, wordpress or shopify, we can help you build a
+                    website that fits your needs.
                   </li>
                 </ul>
                 <p className="font-bold text-lg mt-6 text-left">Our Edge:</p>
@@ -119,7 +131,7 @@ export default function Home() {
                 />
               </div>
               <div className="w-full sm:w-1/2 text-left">
-                <h2 className="text-4xl font-bold mb-4">Get in Touch</h2>
+                <h2 className={`${largeText} font-bold mb-4`}>Get in Touch</h2>
                 <p className="mb-4">
                   <strong>Email: </strong>
                   <a
