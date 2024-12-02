@@ -8,19 +8,19 @@ const Container: React.FC<{
   desc?: string;
   color?: string;
   gradient?: boolean;
+  noPadding?: boolean;
   id?: string;
-}> = ({ children, title, desc, color, id, gradient }) => {
+}> = ({ children, title, desc, color, id, gradient, noPadding }) => {
   const isMobile = useMobile();
   const style: CSSProperties = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
-    minWidth: "100%",
-    maxWidth: isMobile ? '100%' : "1390px",
     height: isMobile ? '100%' : '600px"',
+    minHeight: isMobile ? 'fit-content' : '600px',
     borderRadius: "30px",
-    padding: isMobile ? '20px' : "40px",
+    padding: (isMobile && noPadding) ? 0 : isMobile ? '20px' : "40px",
     textAlign: isMobile ? 'center' : undefined,
   };
 
@@ -34,7 +34,7 @@ const Container: React.FC<{
   return (
     <div
       style={style}
-      className={`container ${backgroundColor} mx-auto px-4 mb40 br-8 ${textColor}`}
+      className={`container ${backgroundColor} ${'minHeight'} mx-auto px-4 mb40 br-8 ${textColor}`}
       id={id}
     >
       {title && (
