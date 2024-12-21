@@ -1,162 +1,298 @@
 "use client";
 import Navbar from "./components/Navbar";
-import Container from "./components/Container";
-import Image from "next/image";
+import Container from "./components/CardContainer";
 import useMobile from "./hooks/useMobile";
+import ContactForm from "./components/ContactForm";
 
 export default function Home() {
   const isMobile = useMobile();
   const largeText = isMobile ? "text-2xl" : "text-4xl";
-  const headerStyle = {
-    fontSize: isMobile ? "40px" : "60px",
-    lineHeight: "1.2em",
-  };
-  const paddingLeft = isMobile ? "pl-2" : "pl-5";
-  const width = {
-    width: isMobile ? "100%" : "1100px",
+  const headerStyle: React.CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    fontSize: isMobile ? "40px" : "90px",
+    lineHeight: ".9em",
   };
 
+  const textContainerStyle: React.CSSProperties = {
+    marginTop: 0,
+    marginBottom: 0,
+    fontSize: "57px",
+    maxWidth: isMobile ? '100%' : "425px",
+    padding: isMobile ? "1rem 0" : "2.5rem",
+  };
+
+  const excellenceText: React.CSSProperties = {
+    marginRight: isMobile ? 0 : '65px',
+    maxWidth: isMobile ? 'inherit' : '525px',
+  };
+
+  const titleStyle: React.CSSProperties = {
+    letterSpacing: "-.04em",
+    textTransform: "uppercase",
+    fontSize: isMobile ? "30px" : "59px",
+    fontWeight: 700,
+    lineHeight: "83%",
+    justifyContent: "center",
+    display: "flex",
+    alignItems: "center",
+    flexDirection: "column",
+    padding: isMobile ? "0px" : "60px",
+    marginBottom: isMobile ? "0px" : "50px",
+    marginTop: isMobile ? "0px" : "50px",
+  };
+
+  const subtitleStyle: React.CSSProperties = {
+    letterSpacing: "-0.04em",
+    textTransform: "uppercase",
+    fontSize: isMobile ? '48px' : "51px",
+    fontWeight: 700,
+    lineHeight: "83%",
+    marginBottom: "24px",
+    background: "-webkit-linear-gradient(#3F4337, #6E8787)",
+    WebkitBackgroundClip: "text",
+    WebkitTextFillColor: "transparent",
+  };
+
+  const footerTitleStyle: React.CSSProperties = {
+    fontSize: isMobile ? '50px' : "80px",
+    width: isMobile ? "100%" : "525px",
+  };
+
+  const mobileStyle = isMobile ? `width: 100vw;` : `width: 100%;`;
+
   return (
-    <div className="bg-gunmetal text-white grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+    <div
+      className={`text-white grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen font-[family-name:var(--font-geist-sans)] ${mobileStyle}`}
+    >
       <Navbar isMobile={isMobile} />
       <main
-        className="flex flex-col gap-8 row-start-2 items-center sm:items-start"
-        id="solutions"
-        style={width}
+        className="flex flex-col row-start-2"
+        style={{ height: "100%", width: "100vw" }}
       >
-        <Container color="gunmetal" noPadding>
-          <div className="w-full text-center">
-            <h2 className={`${largeText} font-bold mb-10`} style={headerStyle}>
-              Building Apps is Hard... But it doesn&apos;t have to be
+        <Container
+          backgroundColor={"#2C2F3A"}
+          style={{ marginTop: "50px", height: "600px" }}
+        >
+          <div className="w-full text-center" style={headerStyle}>
+            <h2
+              className={`${largeText} font-bold mb-10`}
+              style={{
+                maxWidth: "970px",
+                fontSize: isMobile ? "45px" : "90px",
+                lineHeight: 0.9,
+              }}
+            >
+              YOUR GROWTH STORY STARTS HERE.
             </h2>
-            <p className="mb-5">
-              At Shortest Path Consulting, we deliver tailored solutions that
-              streamline operations, enhance current and future technology
-              implementations, and drive business growth. 🚀
+            <div className="flex justify-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+              <a href="#contact">
+                <button
+                  type="button"
+                  className="text-black bg-white hover:french-gray focus:ring-4 focus:outline-none focus:#6E8787 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-black-600 dark:hover:black dark:focus:black"
+                  style={{ borderRadius: "100px" }}
+                >
+                  {"Get in Touch"}
+                </button>
+              </a>
+            </div>
+            <p
+              className={`mb-5 text-sm leading-relaxed`}
+              style={isMobile ? { marginTop: "24px" } : {}}
+            >
+              Delivering tailored technical solutions, streamlining operations,
+              and driving business growth. 🚀
             </p>
           </div>
         </Container>
         <Container
-          color="slateGray"
-          title="Why Shortest Path?"
-          id="why-shortest-path"
+          backgroundColor={"white"}
+          style={{ marginTop: isMobile ? 0 : "50px" }}
         >
-          <div className="w-full text-center mt-10">
-            <ul className={`list-disc ${paddingLeft} text-left space-y-4 mb-5`}>
-              <ol className={`list-decimal ${paddingLeft} space-y-2`}>
-                <li className="pb-3">
-                  <strong>Bottleneck Research:</strong> We focus on the
-                  bottlenecks of your business and provide solutions to remove
-                  them. Looking at your own product over a period of time
-                  creates a blinding bias. By providing our unique perspective,
-                  we can help you see the bottlenecks that you may have missed.
-                </li>
-                <li className="pb-3">
-                  <strong>Business Optimizations:</strong> We analyze your
-                  current data, processes, and analytics to refine business
-                  procedures and increase efficiency.
-                </li>
-                <li className="pb-3">
-                  <strong>Technology Self-Sufficiency:</strong> Our goal is for
-                  your business to be self-reliant, so we provide training and
-                  support to ensure your team can maintain and adapt to new
-                  systems and processes.
-                </li>
-                <li className="pb-3">
-                  <strong>Filling the Gaps:</strong> We support your team
-                  through technology transitions with strategic planning and
-                  training, hiring and scaling support, and project management.
-                </li>
-              </ol>
-            </ul>
-          </div>
-        </Container>
-        <Container id="what-we-do">
-          <div className="w-full">
-            <div
-              className={`flex ${
-                isMobile ? "flex-col-reverse" : "flex-col"
-              } sm:flex-row items-center gap-8`}
-            >
-              <div className="w-full sm:w-2/3 text-left">
-                <h2 className={`${largeText} font-bold mb-4 text-center`}>
-                  What We Do
-                </h2>
-                <ul
-                  className={`{list-disc ${paddingLeft} text-left space-y-4 mb-10`}
+          <div id="who-we-are">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5 gap-y-30 text-black">
+              <div style={titleStyle}>
+                Software Engineering Consulting Agency
+                <span
+                  style={{
+                    background: "-webkit-linear-gradient(#CAC9CF, #2C2F3A)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                  }}
                 >
-                  <li>
-                    <strong>Growth Analysis:</strong> Comprehensive analysis and
-                    strategic advice to identify opportunities for improvement
-                    and growth.
-                  </li>
-                  <li>
-                    <strong>Project Management:</strong> Guiding complex
-                    projects from conception through to completion ensuring
-                    timelines, budgets, and specifications are met.
-                  </li>
-                  <li>
-                    <strong>Training and Support:</strong> Offering ongoing
-                    support and training to ensure sustainable success and
-                    adaptation to new systems and processes.
-                  </li>
-                  <li>
-                    <strong>Custom Solutions:</strong> Whether its building from
-                    scratch, wordpress or shopify, we can help you build a
-                    website that fits your needs.
-                  </li>
-                </ul>
-                <p className="font-bold text-lg mt-6 text-left">Our Edge:</p>
-                <p className="text-left">
-                  Deep industry knowledge across technology and business
-                  management. Customized Solutions: We focus on creating
-                  solutions that are uniquely tailored to the needs of your
-                  business with no fluff added.
-                </p>
+                  Specializing In Building Products.
+                </span>
               </div>
-              <div className="w-full sm:w-1/3">
-                <Image
-                  className="w-full h-auto rounded-lg"
-                  src="/spc5.png"
-                  alt="Progammer Coding"
-                  width={200}
-                  height={200}
-                  priority
-                />
+              <div
+                style={{
+                  fontSize: "16px",
+                  justifyContent: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  padding: isMobile ? "0px" : "50px",
+                  marginBottom: isMobile ? "24px" : "0px",
+                }}
+              >
+                Struggling to bring your software ideas to life? Need expert
+                guidance to build robust and scalable products? You&apos;re not
+                alone. We collaborate with CTOs, Product Managers, and
+                Development Teams across the globe to tackle these challenges
+                with cutting-edge software engineering solutions.
+                <br />
+                <br />
+                Our agency specializes in end-to-end software development, from
+                initial concept to final deployment. We have extensive
+                experience in various industries including finance,
+                social-media, healthcare, education, and more.
+                <br />
+                <br />
+                Based in the heart of Silicon Valley, we are at the cutting edge
+                of technnology innovation. Our dedicated engineers are always
+                ready to assist you. We are committed to driving innovation and
+                delivering high-quality software products for you and your
+                company.
+              </div>
+            </div>
+            <div
+              className="grid grid-cols-1 md:grid-cols-5 gap-20 text-black"
+              style={{ rowGap: ".5rem" }}
+            >
+              <div className="md:col-span-3">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full"
+                  style={{ borderRadius: isMobile ? "none" : "0 35% 35% 0" }}
+                >
+                  <source src="/designslife.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div
+                className="md:col-span-2 text-left flex flex-col justify-center"
+                id="values"
+              >
+                <div style={textContainerStyle}>
+                  <h3
+                    className="text-xl font-bold mb-2 text-black"
+                    style={subtitleStyle}
+                  >
+                    Bringing Your Vision To Life
+                  </h3>
+                  <p className="text-sm">
+                    Vision is how products are born and how they evolve from a
+                    conception to a reality. Our team has a keen eye for design.
+                    We push the boundaries of vision while still being
+                    pragmatic! We believe that great design is a crucial
+                    component of a user experience and ultimately telling a
+                    branding story. We strive to create interfaces that are both
+                    intuitive and aesthetically pleasing. From the initial
+                    concept to the final product, our design process is
+                    meticulous and detail-oriented, guaranteeing that your
+                    vision is brought to life with precision and creativity.
+                  </p>
+                </div>
+              </div>
+              <div
+                className="md:col-span-2 text-left flex flex-col justify-center"
+                style={{
+                  display: "flex",
+                  flexDirection: isMobile ? 'column-reverse' : "row",
+                  justifyContent: "flex-end",
+                  alignItems: "center",
+                  width: isMobile ? '100%' : '100vw',
+                }}
+              >
+                <div style={{ ...textContainerStyle, ...excellenceText }} className="md:col-span-2">
+                  <h3
+                    className="text-xl font-bold mb-2 text-black"
+                    style={subtitleStyle}
+                  >
+                    Driven by Excellence, Powered by Passion
+                  </h3>
+                  <p className="text-sm mb-5">
+                    We are technologically agnostic. Our expertise spans across
+                    various domains including Frontend, Backend, AI tooling,
+                    design, and more. We leverage our expertise to create
+                    solutions that drive real-business solutions - not just
+                    short-term bandages to bigger business problems. Our company
+                    is committed to delivering exceptional software solutions
+                    with precision, reliability, and unwavering attention to
+                    detail, ensuring that every project is executed with the
+                    highest standards of excellence and integrity.
+                  </p>
+                </div>
+                <div className="md:col-span-3">
+                  <video
+                    autoPlay
+                    muted
+                    loop
+                    className="w-full"
+                    style={{ borderRadius: isMobile ? "none" : "35% 0% 0% 35%" }}
+                  >
+                    <source src="/coder.mp4" type="video/mp4" />
+                  </video>
+                </div>
+              </div>
+            </div>
+            <div className={`grid grid-cols-1 md:grid-cols-5 ${isMobile ? 'gap-5' : 'gap-20'} text-black`}>
+              <div className="md:col-span-3">
+                <video
+                  autoPlay
+                  muted
+                  loop
+                  className="w-full"
+                  style={{ borderRadius: isMobile ? "none" : "0 35% 35% 0" }}
+                >
+                  <source src="/handshake.mp4" type="video/mp4" />
+                </video>
+              </div>
+              <div className="md:col-span-2 text-left flex flex-col justify-center">
+                <div style={textContainerStyle}>
+                  <h3
+                    className="text-xl font-bold mb-2 text-black"
+                    style={subtitleStyle}
+                  >
+                    Partnership with Integrity
+                  </h3>
+                  <p className="text-sm">
+                    We believe in building transparent, mutually beneficial
+                    partnerships. Our approach is simple: we only engage with
+                    companies where we can offer real value and drive meaningful
+                    results. We are committed to understanding your needs and
+                    delivering solutions that align with your goals, ensuring
+                    that both parties grow and succeed together. If we cant
+                    bring significant benefit to your business, we will be
+                    upfront about it—our focus is on creating partnerships that
+                    are truly beneficial, not just transactional.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
         </Container>
-        <Container color="black" id="contact">
-          <div className="w-full mt-12">
-            <div className="flex flex-col sm:flex-row items-center gap-8">
-              <div className="w-full sm:w-1/2">
-                <Image
-                  className="w-full h-auto rounded-lg"
-                  src="/shortestpathiphoneprocessed.png"
-                  alt="Shortest Path Logo"
-                  width={300}
-                  height={300}
-                  priority
-                />
-              </div>
-              <div className="w-full sm:w-1/2 text-left">
-                <h2 className={`${largeText} font-bold mb-4`}>Get in Touch</h2>
-                <p className="mb-4">
-                  <strong>Email: </strong>
-                  <a
-                    href="mailto:shortestpathc@gmail.com"
-                    className="underline"
-                  >
-                    shortestpathc@gmail.com
-                  </a>
-                </p>
-                <p>
-                  <strong>Phone:</strong> (650) 716-8403
-                </p>
-              </div>
-            </div>
-          </div>
+        <Container
+          backgroundColor="#fafafa"
+          style={{ minHeight: isMobile ? '550px' : "650px", paddingBottom: "0px" }}
+        >
+          <h3
+            className="text-xl font-bold mb-2 text-black"
+            style={{ ...subtitleStyle, ...footerTitleStyle }}
+            id="contact"
+          >
+            <span
+              style={{
+                background: "-webkit-linear-gradient(#CAC9CF, #2C2F3A)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}
+            >
+              Ready to get started
+            </span>
+          </h3>
+          <ContactForm isMobile={isMobile} />
         </Container>
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
