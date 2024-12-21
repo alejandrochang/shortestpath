@@ -1,24 +1,38 @@
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
-}
+import nodemailer from 'nodemailer';
 
-export async function POST(req: Request): Promise<Response> {
+export async function POST(req: Request) {
   try {
-    const { name, email, message }: ContactFormData = await req.json();
+    // Parse the form data from the request
+    const { name, email, phone, businessName, message } = await req.json();
 
-    // Handle form data (e.g., save it, send an email, etc.)
-    console.log('Form data received:', { name, email, message });
-    // Simulate async operation (like sending an email)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
-    return new Response(JSON.stringify({ message: 'Form submitted successfully' }), {
-      status: 200,
+    // Create a transporter using Gmail's SMTP server
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER, // Your Gmail address
+        pass: process.env.GMAIL_PASS, // Your Gmail password or App Password (re«ommended)
+      },
     });
-  } catch {
+
+    // Set up the email data
+    const mailOptions = {
+      from: process.env.GMAIL_USER,
+      to: 'shortestpathc@gmail.com', // The recipient email
+      subject: 'Contact Form - Shortest Path',
+      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nBusiness Name: ${businessName}\nMessage: ${message}`,
+    };
+
+    // Send the email
+    await transporter.sendMail(mailOptions);
+
     return new Response(
-      JSON.stringify({ message: 'An error occurred. Please try again later.' }),
+      JSON.stringify({ message: 'Email sent successfully' }),
+      { status: 200 }
+    );
+  } catch (error) {
+    console.error('Error sending email:', error);
+    return new Response(
+      JSON.stringify({ message: 'There was an error. Please try again.' }),
       { status: 500 }
     );
   }
