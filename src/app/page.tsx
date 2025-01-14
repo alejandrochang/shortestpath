@@ -3,10 +3,17 @@ import Navbar from "./components/Navbar";
 import Container from "./components/CardContainer";
 import useMobile from "./hooks/useMobile";
 import ContactForm from "./components/ContactForm";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const isMobile = useMobile();
   const largeText = isMobile ? "text-2xl" : "text-4xl";
+  const [loading, setLoading] = useState<boolean>(true);
+
+  useEffect(() => {
+    setLoading(false);
+  }, []);
+
   const headerStyle: React.CSSProperties = {
     display: "flex",
     flexDirection: "column",
@@ -62,6 +69,14 @@ export default function Home() {
   };
 
   const mobileStyle = isMobile ? `width: 100vw;` : `width: 100%;`;
+
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="loader"></div>
+      </div>
+    );
+  }
 
   return (
     <div
