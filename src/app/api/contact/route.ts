@@ -1,39 +1,30 @@
-import nodemailer from 'nodemailer';
+import { render } from "@react-email/components";
+import { WelcomeEmail } from "../../components/WelcomeEmail";
+import React from "react";
+import { sendMail } from "@/app/services/emailService";
 
 export async function POST(req: Request) {
   try {
     // Parse the form data from the request
     const { name, email, phone, businessName, message } = await req.json();
 
-    // Create a transporter using Gmail's SMTP server
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER, // Your Gmail address
-        pass: process.env.GMAIL_PASS, // Your Gmail password or App Password (re«ommended)
-      },
-    });
+    // Send the email to Shortest Path
+    const businessOwnerEmail = "shortestpathc@gmail.com";
+    const subject = "Contact Form - Shortest Path";
+    const text = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nBusiness Name: ${businessName}\nMessage: ${message}`;
+    await sendMail(businessOwnerEmail, subject, text);
 
-    // Set up the email data
-    const mailOptions = {
-      from: process.env.GMAIL_USER,
-      to: 'shortestpathc@gmail.com', // The recipient email
-      subject: 'Contact Form - Shortest Path',
-      text: `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nBusiness Name: ${businessName}\nMessage: ${message}`,
-    };
+    // Send the email to client
+    const emailHtml = await render(React.createElement(WelcomeEmail));
+    const clientSubject = "Welcome to ShortestPath Consulting";
 
-    // Send the email
-    await transporter.sendMail(mailOptions);
-
+    await sendMail(email, clientSubject, "", emailHtml);
     return new Response(
-      JSON.stringify({ message: 'Email sent successfully' }),
+      JSON.stringify({ message: "Email sent successfully" }),
       { status: 200 }
     );
   } catch (error) {
-    console.error('Error sending email:', error);
-    return new Response(
-      JSON.stringify({ message: 'There was an error. Please try again.' }),
-      { status: 500 }
-    );
+    console.error("Error sending email:", error);
+    return new Response("Error sending email", { status: 500 });
   }
 }
