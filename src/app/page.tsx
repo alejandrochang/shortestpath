@@ -4,6 +4,7 @@ import Container from "./components/CardContainer";
 import useMobile from "./hooks/useMobile";
 import ContactForm from "./components/ContactForm";
 import { useEffect, useState } from "react";
+import Footer from "./components/Footer";
 
 export default function Home() {
   const isMobile = useMobile();
@@ -85,7 +86,7 @@ export default function Home() {
       <Navbar isMobile={isMobile} />
       <main
         className="flex flex-col row-start-2"
-        style={{ height: "100%", width: "100vw" }}
+        style={{ height: "100%", width: "100vw", marginBottom: '15px' }}
       >
         <Container
           backgroundColor={"#2C2F3A"}
@@ -310,9 +311,7 @@ export default function Home() {
           <ContactForm isMobile={isMobile} />
         </Container>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        Shortest Path Consulting © 2024
-      </footer>
+      <Footer />
     </div>
   );
 }
